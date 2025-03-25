@@ -19,7 +19,7 @@ L'API est connectée à une base **MySQL** et supporte le **réentraînement aut
 
 ### 1️⃣ **Cloner le projet**
 ```bash
-git clone https://github.com/JongCHONG/EfreiM2AlgoTP.git
+git clone https://github.com/JongCHONG/EfreiM2SentimentAnalyzer.git
 cd EfreiM2AlgoTP
 ```
 
