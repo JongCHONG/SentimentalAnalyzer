@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import joblib
 from data.database import get_db_connection
+from model_training import model_training
 
 # Charger le modèle et le vectorizer
 model = joblib.load("sentiment_model.joblib")
@@ -33,7 +34,7 @@ def analyze_sentiment():
 
         # Enregistrer dans la base de données
         cursor.execute(
-            "INSERT INTO tweets (text, positive, negative) VALUES (%s, %s, %s)",
+            "INSERT INTO tweets (text, positive, negative, date_added) VALUES (%s, %s, %s, NOW())",
             (tweet, 1 if label == 1 else 0, 1 if label == 0 else 0)
         )
 
@@ -52,6 +53,11 @@ def get_tweets():
     cursor.close()
     conn.close()
     return jsonify(tweets)
+
+@app.route("/training", methods=["POST"])
+def training():
+    message = model_training()
+    return jsonify({"message": message})
 
 if __name__ == "__main__":
     app.run(debug=True)
