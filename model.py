@@ -1,6 +1,6 @@
 import joblib
 import nltk
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 import os
 
@@ -15,7 +15,8 @@ tweets = [
     ("Ce film est trop nul.", 0),
     ("Je ne sais pas quoi penser, c'est moyen.", 0),
     ("Superbe qualité, je recommande !", 1),
-    ("Ce service est une catastrophe.", 0)
+    ("Ce service est une catastrophe.", 0),
+    ("On avance pas à pas, et chaque petit progrès compte.", 1)
 ]
 
 # Séparer les textes et les labels
@@ -23,7 +24,7 @@ X_train = [tweet[0] for tweet in tweets]
 y_train = [tweet[1] for tweet in tweets]
 
 # Vectorisation du texte (Bag of Words)
-vectorizer = CountVectorizer(stop_words=stopwords.words("french"))
+vectorizer = TfidfVectorizer(stop_words=stopwords.words("french"))
 X_train_vectorized = vectorizer.fit_transform(X_train)
 
 # Entraînement du modèle
