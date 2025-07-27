@@ -1,4 +1,3 @@
-```md
 # 🧠 API d'Analyse de Sentiments avec Flask & Machine Learning
 
 Ce projet est une API Flask permettant d'analyser les sentiments de tweets en utilisant un modèle de **Régression Logistique**.  
@@ -20,7 +19,6 @@ L'API est connectée à une base **MySQL** et supporte le **réentraînement aut
 ### 1️⃣ **Cloner le projet**
 ```bash
 git clone https://github.com/JongCHONG/EfreiM2SentimentAnalyzer.git
-cd EfreiM2AlgoTP
 ```
 
 ### 2️⃣ **Installer les dépendances**
